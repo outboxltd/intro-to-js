@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הציפור המעופפת</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- אזור המשחק הראשי -->
+    <div class="game-container">
+        <!-- מסך פתיחה -->
+        <div id="start-screen">
+            <h1>הציפור המעופפת</h1>
+            <p>לחץ על מקש הרווח כדי להתחיל</p>
+        </div>
+
+        <!-- אזור המשחק -->
+        <div id="game-area">
+            <!-- הציפור שלנו -->
+            <div id="bird"></div>
+            
+            <!-- הניקוד -->
+            <div id="score">0</div>
+        </div>
+
+        <!-- מסך סיום -->
+        <div id="game-over" class="hidden">
+            <h2>המשחק נגמר!</h2>
+            <p>הניקוד שלך: <span id="final-score">0</span></p>
+            <button id="restart-button">שחק שוב</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

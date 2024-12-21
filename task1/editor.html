@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>תרגילים ב-JavaScript</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="header">
+        <h1>תרגילים ב-JavaScript</h1>
+    </div>
+    
+    <div id="container">
+        <div id="sidebar">
+            <h3>תרגילים:</h3>
+            <button class="example-btn" id="btn-exercise-1">תרגיל 1 - שינוי טקסט</button>
+            <button class="example-btn" id="btn-exercise-2">תרגיל 2 - שינוי צבע רקע</button>
+            <button class="example-btn" id="btn-exercise-3">תרגיל 3 - צבע רקע אקראי</button>
+        </div>
+        <div id="main-content">
+            <div id="exercise-1" class="exercise-container">
+                <h2>תרגיל 1: שינוי טקסט בלחיצת כפתור</h2>
+                <div class="exercise-description">
+                    <h3>משימה:</h3>
+                    <p>צרו דף HTML עם:</p>
+                    <ul>
+                        <li>כותרת (h1) עם id="welcomeMessage"</li>
+                        <li>כפתור שבלחיצה עליו ישנה את תוכן הכותרת</li>
+                        <li>פונקציית JavaScript שתשנה את תוכן הכותרת ל"תודה שלחצת על הכפתור!"</li>
+                    </ul>
+                </div>
+                <div class="exercise-preview">
+                    <h1>ברוכים הבאים לאתר שלי!</h1>
+                    <button onclick="alert('זוהי תצוגה מקדימה. נסו לפתור את התרגיל!')">לחץ כדי לשנות טקסט</button>
+                </div>
+                <button class="start-btn" onclick="startExercise(1)">נסו לפתור את התרגיל</button>
+                <div class="timer" id="timer-1"></div>
+                <button class="solution-btn" id="solution-btn-1" onclick="showSolution(1)">הצגת הפתרון</button>
+                <div class="editor-container" id="editor-container-1">
+                    <div id="editor-1"></div>
+                </div>
+            </div>
+
+            <div id="exercise-2" class="exercise-container" style="display: none;">
+                <h2>תרגיל 2: שינוי צבע רקע</h2>
+                <div class="exercise-description">
+                    <h3>משימה:</h3>
+                    <p>צרו דף HTML שיכלול:</p>
+                    <ul>
+                        <li>כותרת מתאימה</li>
+                        <li>כפתור "החלף צבע רקע"</li>
+                        <li>פונקציית JavaScript שתשנה את צבע הרקע של העמוד ל-lightgreen</li>
+                    </ul>
+                </div>
+                <div class="exercise-preview">
+                    <h1>משחק החלפת צבע רקע</h1>
+                    <button onclick="alert('זוהי תצוגה מקדימה. נסו לפתור את התרגיל!')">החלף צבע רקע</button>
+                </div>
+                <button class="start-btn" onclick="startExercise(2)">נסו לפתור את התרגיל</button>
+                <div class="timer" id="timer-2"></div>
+                <button class="solution-btn" id="solution-btn-2" onclick="showSolution(2)">הצגת הפתרון</button>
+                <div class="editor-container" id="editor-container-2">
+                    <div id="editor-2"></div>
+                </div>
+            </div>
+
+            <div id="exercise-3" class="exercise-container" style="display: none;">
+                <h2>תרגיל 3: צבע רקע אקראי</h2>
+                <div class="exercise-description">
+                    <h3>משימה:</h3>
+                    <p>שדרגו את התרגיל הקודם:</p>
+                    <ul>
+                        <li>צרו מערך של צבעים</li>
+                        <li>בכל לחיצה על הכפתור, בחרו צבע אקראי מהמערך</li>
+                        <li>שנו את צבע הרקע לצבע שנבחר</li>
+                    </ul>
+                </div>
+                <div class="exercise-preview">
+                    <h1>משחק החלפת צבע רקע אקראי</h1>
+                    <button onclick="alert('זוהי תצוגה מקדימה. נסו לפתור את התרגיל!')">החלף צבע רקע</button>
+                </div>
+                <button class="start-btn" onclick="startExercise(3)">נסו לפתור את התרגיל</button>
+                <div class="timer" id="timer-3"></div>
+                <button class="solution-btn" id="solution-btn-3" onclick="showSolution(3)">הצגת הפתרון</button>
+                <div class="editor-container" id="editor-container-3">
+                    <div id="editor-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+    <script>
+        // Configure loading of Monaco Editor
+        require.config({
+            paths: {
+                'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs',
+                'monaco-editor': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min'
+            }
+        });
+        window.MonacoEnvironment = {
+            getWorkerUrl: function(workerId, label) {
+                return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+                    self.MonacoEnvironment = {
+                        baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/'
+                    };
+                    importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/base/worker/workerMain.js');`
+                )}`;
+            }
+        };
+    </script>
+    <script src="js/exercises.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
