@@ -7,8 +7,8 @@ let score = 0;
 let obstacles = [];
 
 // קבועים של המשחק
-const GRAVITY = 0.25;
-const JUMP_FORCE = -7;
+const GRAVITY = 0.25;       // הקטנת כוח המשיכה לנפילה איטית יותר
+const JUMP_FORCE = -7;      // הקטנת כוח הקפיצה להתאמה לנפילה האיטית
 const OBSTACLE_SPEED = 3;
 const OBSTACLE_INTERVAL = 2500;
 const INITIAL_OBSTACLE_POSITION = 500;
